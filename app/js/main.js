@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
-import Layout from './components/pages/Layout.jsx';
-import Welcome from './components/pages/Welcome.jsx';
-import SpaceTypes from './components/pages/SpaceTypes.jsx';
-import Spaces from './components/pages/Spaces.jsx';
-import Amenities from './components/pages/Amenities.jsx';
-import Signin from './components/pages/Signin.jsx';
-import Signup from './components/pages/Signup.jsx';
+import Layout from './components/pages/Layout';
+import Welcome from './components/pages/Welcome';
+import SpaceTypes from './components/pages/SpaceTypes';
+import Spaces from './components/pages/Spaces';
+import Amenities from './components/pages/Amenities';
+import Signin from './components/pages/Signin';
+import Signup from './components/pages/Signup';
 
 ReactDOM.render((
   <Router history = {browserHistory}>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Amenities = React.createClass({
+class Amenities extends React.Component {
   render() {
     return (
       <div>
@@ -8,5 +8,5 @@ var Amenities = React.createClass({
       </div>
     )
   }
-});
+}
 export default Amenities;

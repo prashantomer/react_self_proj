@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-var Header = React.createClass({
+class Header extends React.Component {
   render() {
     var currentPath = this.props.currentPath;
     var activeSpaceTypes = currentPath == '/spaceTypes' ? 'active' : ''
@@ -46,6 +46,6 @@ var Header = React.createClass({
       </div>
     )
   }
-});
+}
 
 export default Header;

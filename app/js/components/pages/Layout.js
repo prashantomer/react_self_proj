@@ -1,9 +1,8 @@
 import React from 'react';
-import Footer from '../layout/Footer.jsx';
-import Header from '../layout/Header.jsx';
+import Footer from '../layout/Footer';
+import Header from '../layout/Header';
 
-
-var Layout = React.createClass({
+class Layout extends React.Component {
   render () {
     var currentPath = this.props.location.pathname;
     return (
@@ -20,6 +19,6 @@ var Layout = React.createClass({
       </div>
     )
   }
-});
+}
 
 export default Layout;
