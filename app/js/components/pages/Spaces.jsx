@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Spaces extends React.Component {
+var Spaces = React.createClass({
   render() {
     return (
       <div>
@@ -8,5 +8,5 @@ class Spaces extends React.Component {
       </div>
     )
   }
-}
+});
 export default Spaces;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SpaceTypes extends React.Component {
+var SpaceTypes = React.createClass({
   render() {
     return (
       <div>
@@ -8,5 +8,5 @@ class SpaceTypes extends React.Component {
       </div>
     )
   }
-}
+});
 export default SpaceTypes;

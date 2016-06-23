@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 var Header = React.createClass({
   render() {
-    var currentPath = 'this.props.currentPath;'
+    var currentPath = this.props.currentPath;
     var activeSpaceTypes = currentPath == '/spaceTypes' ? 'active' : ''
     var activeAmenities = currentPath == '/amenities' ? 'active' : ''
     var activeSspaces = currentPath == '/spaces' ? 'active' : ''
