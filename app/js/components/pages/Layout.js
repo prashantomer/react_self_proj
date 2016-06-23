@@ -6,7 +6,7 @@ class Layout extends React.Component {
   render () {
     var currentPath = this.props.location.pathname;
     return (
-      <div>
+      <div className='Layout'>
         <Header currentPath = {currentPath} />
         <div class='container'>
           <div class='row'>

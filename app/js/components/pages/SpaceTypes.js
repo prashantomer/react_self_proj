@@ -3,7 +3,7 @@ import React from 'react';
 class SpaceTypes extends React.Component {
   render() {
     return (
-      <div>
+      <div className='SpaceTypes'>
         <h1>SpaceTypes...</h1>
       </div>
     )
