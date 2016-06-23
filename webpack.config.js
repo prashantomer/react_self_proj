@@ -9,7 +9,8 @@ var config = {
 
   devServer: {
     inline: true,
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
   },
 
   module: {
@@ -20,7 +21,7 @@ var config = {
         loader: 'babel',
     
         query: {
-           presets: ['es2015', 'react']
+          presets: ['es2015', 'react']
         }
       }
     ]

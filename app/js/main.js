@@ -11,15 +11,15 @@ import Signin from './components/pages/Signin.jsx';
 import Signup from './components/pages/Signup.jsx';
 
 ReactDOM.render((
-   <Router history = {browserHistory}>
-      <Route path = "/" component = {Layout}>
-        <IndexRoute component = {Welcome} />
-        <Route path = "spaceTypes" component = {SpaceTypes} />
-        <Route path = "spaces" component = {Spaces} />
-        <Route path = "amenities" component = {Amenities} />
-        <Route path = "signin" component = {Signin} />
-        <Route path = "signup" component = {Signup} />
-      </Route>
-   </Router>
+  <Router history = {browserHistory}>
+    <Route path = '/' component = {Layout}>
+      <IndexRoute component = {Welcome} />
+      <Route path = 'spaceTypes' name='spaceTypes' component = {SpaceTypes} />
+      <Route path = 'spaces' name='spaces' component = {Spaces} />
+      <Route path = 'amenities' name='amenities' component = {Amenities} />
+      <Route path = 'signin' name='signin'component = {Signin} />
+      <Route path = 'signup' name='signup' component = {Signup} />
+    </Route>
+  </Router>
 	
 ), document.getElementById('app'))
