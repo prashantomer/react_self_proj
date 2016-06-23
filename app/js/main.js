@@ -10,7 +10,7 @@ import Amenities from './components/pages/Amenities';
 import Signin from './components/pages/Signin';
 import Signup from './components/pages/Signup';
 
-ReactDOM.render((
+var routes = (
   <Router history = {browserHistory}>
     <Route path = '/' component = {Layout}>
       <IndexRoute component = {Welcome} />
@@ -21,5 +21,6 @@ ReactDOM.render((
       <Route path = 'signup' name='signup' component = {Signup} />
     </Route>
   </Router>
-	
-), document.getElementById('app'))
+)
+
+ReactDOM.render(routes, document.getElementById('app'))
