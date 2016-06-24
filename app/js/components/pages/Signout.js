@@ -4,11 +4,13 @@ import { Router, Route, withRouter  } from 'react-router'
 import flash from './flash'
 
 const Signout = withRouter(class extends React.Component {
-	componentDidMount () {
+	
+  componentDidMount () {
     auth.logout();
     this.props.router.replace('/')
     flash.success('Sign out successfully...!')
   }
+
   render() {
     return (
       <div className='Signout'>

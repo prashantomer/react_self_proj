@@ -20,7 +20,6 @@ class App extends React.Component {
 
   componentWillMount () {
     auth.onChange = this.setStateOnAuth.bind(this);
-    auth.login();
   }
 
   render () {

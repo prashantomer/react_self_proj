@@ -32,6 +32,7 @@ function requireAuth(nextState, replace) {
     })
   }
 }
+
 function checkAuth(nextState, replace) {
   if (auth.loggedIn()) {
     replace({

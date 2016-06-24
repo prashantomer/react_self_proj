@@ -1,9 +1,10 @@
 import React from 'react';
-import auth from './auth'
 import { Router, Route, withRouter  } from 'react-router'
+import auth from './auth'
 import flash from './flash'
 
 const Signin = withRouter( class extends React.Component {
+  
   constructor () {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -11,11 +12,13 @@ const Signin = withRouter( class extends React.Component {
       error: false
     };
   }
+
   componentDidUpdate () {
     {this.state.error && (
       flash.warning('Invalid email or password...!')
     )}
   }
+
   handleSubmit(event) {
     event.preventDefault()
 
@@ -30,12 +33,14 @@ const Signin = withRouter( class extends React.Component {
 
       if (location.state && location.state.nextPathname) {
         this.props.router.replace(location.state.nextPathname)
+        flash.success('Sign in successfully...!')
       } else {
         this.props.router.replace('/')
+        flash.success('Sign in successfully...!')
       }
     })
-    flash.success('Sign in successfully...!')
   }
+  
   render() {
     return (
       <div className='Signin col-md-8 col-md-offset-2 well'>

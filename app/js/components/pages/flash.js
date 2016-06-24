@@ -21,5 +21,20 @@ module.exports = {
     $('.flash-message').html(
       '<div class="alert alert alert-danger fade in"><a class="close" data-dismiss="alert" aria-label="close" title="close">×</a><strong>Danger! </strong>'+message+'</div>'
     )
-  }
+  },
+
+  errors_with_object(object) {
+    clearErrors();
+    $.each(object.errors, function( key, value ) {
+      $(`.${key} p`).text(value);
+      $(`.${key} input`).addClass('input_error');
+    });
+  },
+}
+
+function clearErrors(){
+  $.each($('.flash-error'), function( value ) {
+    $(this).children('p').text('');
+    $(this).children('input').removeClass('input_error');
+  });
 }
