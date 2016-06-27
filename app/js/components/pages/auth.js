@@ -146,9 +146,9 @@ function pretendFacebookRequest(token, cb) {
 
 function host() {
   if (process.env.NODE_ENV != 'production') {
-    return 'http://localhost:3001'
+    return 'https://compartir-espacios-api.herokuapp.com'
   } else {
-    return 'http://localhost:3001'
+    return 'https://compartir-espacios-api.herokuapp.com'
   }
 }
 // https://compartir-espacios-api.herokuapp.com
