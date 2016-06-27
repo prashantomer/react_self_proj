@@ -11,7 +11,7 @@ var config = {
 
   devServer: {
     inline: true,
-    port: (process.env.PORT || 3000),
+    port: 3000,
     historyApiFallback: true
   },
 
