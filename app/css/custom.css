@@ -4,11 +4,19 @@
 .Signin .btn {
 	margin-right: 5px;
 }
+.Signin span {
+  padding: 10px;
+  margin-right: 5px;
+}
 .Signup {
 	margin-top: 50px;		
 }
 .Signup .btn {
 	margin-right: 5px;
+}
+.Signup span {
+  padding: 10px;
+  margin-right: 5px;
 }
 .error{
 	color: #ff0039;

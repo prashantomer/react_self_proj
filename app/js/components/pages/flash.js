@@ -32,7 +32,7 @@ module.exports = {
   },
 }
 
-function clearErrors(){
+function clearErrors() {
   $.each($('.flash-error'), function( value ) {
     $(this).children('p').text('');
     $(this).children('input').removeClass('input_error');

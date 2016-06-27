@@ -13,9 +13,11 @@ module.exports = {
         localStorage.token = res.token
         if (cb) cb(true)
         this.onChange(true)
+        flash.success('Sign in successfully...!')
       } else {
         if (cb) cb(false)
         this.onChange(false)
+        flash.warning('Invalid email or password...!')
       }
     })
   },
@@ -32,6 +34,27 @@ module.exports = {
         localStorage.token = res.token
         if (cb) cb(true)
         this.onChange(true)
+        flash.success('Sign Up successfully...!')
+      } else {
+        if (cb) cb(false)
+        this.onChange(false)
+      }
+    })
+  },
+
+  facebookAuth(token, cb) {
+    cb = arguments[arguments.length - 1]
+    if (localStorage.token) {
+      if (cb) cb(true)
+      this.onChange(true)
+      return
+    }
+    pretendFacebookRequest(token, (res) => {
+      if (res.authenticated) {
+        localStorage.token = res.token
+        if (cb) cb(true)
+        this.onChange(true)
+        flash.success('Sign in successfully...!')
       } else {
         if (cb) cb(false)
         this.onChange(false)
@@ -99,10 +122,33 @@ function pretendSignupRequest(name, email, pass, confirm_pass, cb) {
   }, 0)
 }
 
-function host(){
+function pretendFacebookRequest(token, cb) {
+  setTimeout(() => {
+    $.ajax({
+      url: `${host()}/authentications/facebook`,
+      type: 'POST',
+      data: { token: token },
+      success: (response) => { 
+        cb({
+          authenticated: true,
+          token: response.token
+        })
+      },
+      complete: (response) => { 
+        if (response.status != 200) {
+          cb({ authenticated: false })
+          flash.warning(response.responseJSON.error.message)
+        }
+      } 
+    });
+  }, 0)
+}
+
+function host() {
   if (process.env.NODE_ENV != 'production') {
     return 'http://localhost:3001'
   } else {
     return 'http://localhost:3001'
   }
 }
+// https://compartir-espacios-api.herokuapp.com

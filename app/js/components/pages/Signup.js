@@ -1,8 +1,7 @@
 import React from 'react';
-import { Router, Route, withRouter  } from 'react-router'
+import { withRouter  } from 'react-router'
 import auth from './auth'
-import flash from './flash'
-
+import Facebook from './Facebook';
 
 const Signup = withRouter(class extends React.Component {
   
@@ -25,15 +24,8 @@ const Signup = withRouter(class extends React.Component {
     auth.signup(name, email, password, confirm_pass, (loggedIn) => {
       if (!loggedIn)
         return this.setState({ error: true })
-
       const { location } = this.props
-
-      if (location.state && location.state.nextPathname) {
-        this.props.router.replace(location.state.nextPathname)
-      } else {
-        this.props.router.replace('/')
-        flash.success('Sign Up successfully...!')
-      }
+      this.props.router.replace('/')
     })
   }
 
@@ -79,7 +71,8 @@ const Signup = withRouter(class extends React.Component {
             <div className='form-group'>
               <div className='col-lg-9 col-lg-offset-3'>
                 <button type='reset' className='btn btn-default'>Cancel</button>
-                <button type='submit' className='btn btn-primary'>Submit</button>
+                <button type='submit' className='btn btn-primary'>Submit</button> <span>OR</span>
+                <Facebook  location = {this.props}/>
               </div>
             </div>
           </fieldset>
