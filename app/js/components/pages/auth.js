@@ -10,7 +10,7 @@ module.exports = {
     }
     pretendLoginRequest(email, pass, (res) => {
       if (res.authenticated) {
-        localStorage.token = res.token
+        set_local_storage(res)
         if (cb) cb(true)
         this.onChange(true)
         flash.success('Sign in successfully...!')
@@ -31,7 +31,7 @@ module.exports = {
     }
     pretendSignupRequest(name, email, pass, confirm_pass, (res) => {
       if (res.authenticated) {
-        localStorage.token = res.token
+        set_local_storage(res)
         if (cb) cb(true)
         this.onChange(true)
         flash.success('Sign Up successfully...!')
@@ -51,7 +51,7 @@ module.exports = {
     }
     pretendFacebookRequest(token, (res) => {
       if (res.authenticated) {
-        localStorage.token = res.token
+        set_local_storage(res)
         if (cb) cb(true)
         this.onChange(true)
         flash.success('Sign in successfully...!')
@@ -76,7 +76,21 @@ module.exports = {
     return !!localStorage.token
   },
 
+  getUserName() {
+    return localStorage.user_name
+  },
+
+  getUserType() {
+    return localStorage.is_admin == 'true' ? 'admin' : 'user'
+  },
+
   onChange() {}
+}
+
+function set_local_storage(res) {
+  localStorage.token = res.token
+  localStorage.user_name = res.user_name
+  localStorage.is_admin = res.is_admin
 }
 
 function pretendLoginRequest(email, pass, cb) {
@@ -86,10 +100,7 @@ function pretendLoginRequest(email, pass, cb) {
       type: 'POST',
       data: { credentials: { email: email, password: pass } },
       success: (response) => { 
-        cb({
-          authenticated: true,
-          token: response.token
-        })
+        updateCB(response, cb)
       },
       complete: (response) => { 
         if (response.status != 200) {
@@ -107,10 +118,7 @@ function pretendSignupRequest(name, email, pass, confirm_pass, cb) {
       type: 'POST',
       data: { user: { name: name, email: email, password: pass, password_confirmation: confirm_pass } },
       success: (response) => { 
-        cb({
-          authenticated: true,
-          token: response.token
-        })
+        updateCB(response, cb)
       },
       complete: (response) => { 
         if (response.status != 200) {
@@ -129,10 +137,7 @@ function pretendFacebookRequest(token, cb) {
       type: 'POST',
       data: { token: token },
       success: (response) => { 
-        cb({
-          authenticated: true,
-          token: response.token
-        })
+        updateCB(response, cb)
       },
       complete: (response) => { 
         if (response.status != 200) {
@@ -142,6 +147,15 @@ function pretendFacebookRequest(token, cb) {
       } 
     });
   }, 0)
+}
+
+function updateCB(response, cb) {
+  cb({
+    authenticated: true,
+    token: response.token,
+    user_name: response.user.name,
+    is_admin: response.user.is_admin
+  })
 }
 
 function host() {

@@ -8,13 +8,17 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      loggedIn: auth.loggedIn()
+      loggedIn: auth.loggedIn(),
+      userName: auth.getUserName(),
+      userType: auth.getUserType(),
     };
   }
 
-  setStateOnAuth (loggedIn) {
+  setStateOnAuth (loggedIn, userName, userType) {
     this.setState({
-      loggedIn: loggedIn
+      loggedIn: loggedIn,
+      userName: auth.userName,
+      userType: auth.userType
     });
   }
 
@@ -26,7 +30,7 @@ class App extends React.Component {
     var currentPath = this.props.location.pathname;
     return (
       <div className='App'>
-        <Header currentPath = {currentPath} loggedIn = {this.state.loggedIn} />
+        <Header currentPath = {currentPath} loggedIn = {this.state.loggedIn} userName = {this.state.userName} />
         <div className='container'>
           <div className='row'>
             <div className='col-lg-12'>

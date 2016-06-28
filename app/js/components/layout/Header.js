@@ -3,14 +3,14 @@ import { Link } from 'react-router'
 
 class Header extends React.Component {
   render() {
-    var currentPath = this.props.currentPath;
-    var activeSpaceTypes = currentPath == '/' ? 'active' : ''
-    var activeAmenities = currentPath == '/amenities' ? 'active' : ''
-    var activeSpaces = currentPath == '/spaces' ? 'active' : ''
-    var activeSignin = currentPath == '/signin' ? 'active' : ''
-    var activeSignup = currentPath == '/signup' ? 'active' : ''
-    var activeSignout = currentPath == '/signup' ? 'active' : ''
-
+    const currentPath = this.props.currentPath;
+    const activeSpaceTypes = currentPath == '/' ? 'active' : ''
+    const activeAmenities = currentPath == '/amenities' ? 'active' : ''
+    const activeSpaces = currentPath == '/spaces' ? 'active' : ''
+    const activeSignin = currentPath == '/signin' ? 'active' : ''
+    const activeSignup = currentPath == '/signup' ? 'active' : ''
+    const activeSignout = currentPath == '/signup' ? 'active' : ''
+    const activeProfile = currentPath == '/profile' ? 'active' : ''
     return (
       <div className='Header'>
         <nav className='navbar navbar-default'>
@@ -39,6 +39,7 @@ class Header extends React.Component {
               </form>
               { this.props.loggedIn ? (
                 <ul className='nav navbar-nav navbar-right'>
+                  <li className={activeProfile}><Link to='/profile'>{this.props.userName}</Link></li>
                   <li className={activeSignout}><Link to='signout'>Sign Out</Link></li>
                 </ul>
               ) : ( 
