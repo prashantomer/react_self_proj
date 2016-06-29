@@ -10,7 +10,7 @@ module.exports = {
     }
     pretendLoginRequest(email, pass, (res) => {
       if (res.authenticated) {
-        set_local_storage(res)
+        setLocalStorage(res)
         if (cb) cb(true)
         this.onChange(true)
         flash.success('Sign in successfully...!')
@@ -31,7 +31,7 @@ module.exports = {
     }
     pretendSignupRequest(name, email, pass, confirm_pass, (res) => {
       if (res.authenticated) {
-        set_local_storage(res)
+        setLocalStorage(res)
         if (cb) cb(true)
         this.onChange(true)
         flash.success('Sign Up successfully...!')
@@ -51,7 +51,7 @@ module.exports = {
     }
     pretendFacebookRequest(token, (res) => {
       if (res.authenticated) {
-        set_local_storage(res)
+        setLocalStorage(res)
         if (cb) cb(true)
         this.onChange(true)
         flash.success('Sign in successfully...!')
@@ -68,6 +68,7 @@ module.exports = {
 
   logout(cb) {
     delete localStorage.token
+    delete localStorage.user
     if (cb) cb()
     this.onChange(false)
   },
@@ -76,21 +77,16 @@ module.exports = {
     return !!localStorage.token
   },
 
-  getUserName() {
-    return localStorage.user_name
-  },
-
-  getUserType() {
-    return localStorage.is_admin == 'true' ? 'admin' : 'user'
+  getUser() {
+    return (localStorage.user == undefined) ? null : JSON.parse(localStorage.user);
   },
 
   onChange() {}
 }
 
-function set_local_storage(res) {
+function setLocalStorage(res) {
   localStorage.token = res.token
-  localStorage.user_name = res.user_name
-  localStorage.is_admin = res.is_admin
+  localStorage.user = JSON.stringify(res.user)
 }
 
 function pretendLoginRequest(email, pass, cb) {
@@ -153,8 +149,7 @@ function updateCB(response, cb) {
   cb({
     authenticated: true,
     token: response.token,
-    user_name: response.user.name,
-    is_admin: response.user.is_admin
+    user: response.user
   })
 }
 

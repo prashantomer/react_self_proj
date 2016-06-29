@@ -39,7 +39,7 @@ class Header extends React.Component {
               </form>
               { this.props.loggedIn ? (
                 <ul className='nav navbar-nav navbar-right'>
-                  <li className={activeProfile}><Link to='/profile'>{this.props.userName}</Link></li>
+                  <li className={activeProfile}><Link to='/profile'>{this.props.currentUser.name}</Link></li>
                   <li className={activeSignout}><Link to='signout'>Sign Out</Link></li>
                 </ul>
               ) : ( 
