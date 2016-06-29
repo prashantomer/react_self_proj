@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { render } from 'react-dom'
 import { Router, Route, Link, browserHistory, IndexRoute, withRouter  } from 'react-router'
 import App from './components/pages/App';
-import SpaceTypes from './components/pages/SpaceTypes';
-import Spaces from './components/pages/Spaces';
+import SpaceTypes from './components/pages/SpaceTypes/main';
+import Spaces from './components/pages/Spaces/main';
 import Amenities from './components/pages/Amenities';
 import Signin from './components/pages/Signin';
 import Signup from './components/pages/Signup';

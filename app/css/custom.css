@@ -38,3 +38,19 @@
   border-color: #FF0800;
   background-color: #ffffff;
 }
+
+h3 {
+  font-weight: 400;
+}
+
+hr {
+  border-top: 2px solid #e6e6e6;
+}
+
+.SpaceType .btn{
+  margin-left: 10px;
+}
+
+.SpaceTypes table tr td:first-child{
+  width: 70%;
+}

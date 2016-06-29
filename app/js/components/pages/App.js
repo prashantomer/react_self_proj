@@ -9,14 +9,16 @@ class App extends React.Component {
     super();
     this.state = {
       loggedIn: auth.loggedIn(),
-      currentUser: auth.getUser()
+      currentUser: auth.getUser(),
+      token: auth.getToken(),
     };
   }
 
   setStateOnAuth (loggedIn, currentUser) {
     this.setState({
       loggedIn: loggedIn,
-      currentUser:  auth.getUser()
+      currentUser:  auth.getUser(),
+      token:  auth.getToken()
     });
   }
 
@@ -26,6 +28,7 @@ class App extends React.Component {
 
   render () {
     var currentPath = this.props.location.pathname;
+    var children = React.cloneElement(this.props.children, { appState: this.state });
     return (
       <div className='App'>
         <Header currentPath = {currentPath} loggedIn = {this.state.loggedIn} currentUser = {this.state.currentUser} />
@@ -36,7 +39,7 @@ class App extends React.Component {
               </div>  
             </div>
             <div className='col-lg-12'>
-              {this.props.children}
+             {children}
             </div>
           </div>
         </div>

@@ -81,6 +81,10 @@ module.exports = {
     return (localStorage.user == undefined) ? null : JSON.parse(localStorage.user);
   },
 
+  host() {
+    return host()
+  },
+
   onChange() {}
 }
 

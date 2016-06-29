@@ -25,11 +25,11 @@ const Facbook = withRouter( class extends React.Component {
   render() {
     return (
       <FacebookLogin
-        appId="264261863720887"
+        appId='264261863720887'
         autoLoad={false}
         callback={this.responseFacebook}
-        cssClass="btn btn-primary"
-        icon="fa-facebook" 
+        cssClass='btn btn-primary'
+        icon='fa-facebook' 
       />
     )
   }
