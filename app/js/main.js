@@ -15,7 +15,7 @@ import auth from './components/pages/auth'
 var routes = (
   <Router history = {browserHistory}>
     <Route path = '/' component = {App}>
-      <IndexRoute component = {SpaceTypes} onEnter={requireAuth}/>
+      <IndexRoute component = {SpaceTypes} />
       <Route path = 'spaces' name='spaces' component = {Spaces} onEnter={requireAuth} />
       <Route path = 'amenities' name='amenities' component = {Amenities} onEnter={requireAuth} />
       <Route path = 'signin' name='signin' component = {Signin}  onEnter={checkAuth}/>

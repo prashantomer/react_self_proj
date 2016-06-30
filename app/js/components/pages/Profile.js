@@ -7,7 +7,7 @@ class Profile extends React.Component {
     return (
       <div className='Profile'>
         <h1>Profile...</h1>
-        <h3><strong>Name : </strong>{this.props.appState.currentUser.name}</h3>
+        <h3><strong>Name : </strong>{this.props.state.currentUser.name}</h3>
       </div>
     )
   }

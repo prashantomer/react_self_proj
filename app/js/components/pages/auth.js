@@ -123,7 +123,7 @@ function pretendSignupRequest(name, email, pass, confirm_pass, cb) {
       complete: (response) => { 
         if (response.status != 200) {
           cb({ authenticated: false })
-          flash.errors_with_object(response.responseJSON)
+          flash.errors_with_object(response.responseJSON.errors)
         }
       } 
     });
@@ -159,9 +159,9 @@ function updateCB(response, cb) {
 
 function host() {
   if (process.env.NODE_ENV != 'production') {
-    return 'https://compartir-espacios-api.herokuapp.com'
+    return 'http://localhost:3001'
   } else {
-    return 'https://compartir-espacios-api.herokuapp.com'
+    return 'http://localhost:3001'
   }
 }
 // https://compartir-espacios-api.herokuapp.com

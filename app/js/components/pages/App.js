@@ -28,7 +28,7 @@ class App extends React.Component {
 
   render () {
     var currentPath = this.props.location.pathname;
-    var children = React.cloneElement(this.props.children, { appState: this.state });
+    var children = React.cloneElement(this.props.children, { state: this.state });
     return (
       <div className='App'>
         <Header currentPath = {currentPath} loggedIn = {this.state.loggedIn} currentUser = {this.state.currentUser} />

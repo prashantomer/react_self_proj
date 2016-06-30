@@ -25,11 +25,15 @@ module.exports = {
 
   errors_with_object(object) {
     clearErrors();
-    $.each(object.errors, function( key, value ) {
-      $(`.${key} p`).text(value);
+    $.each(object, function( key, value ) {
+      $(`.${key} p`).text(`${key} ${value}`);
       $(`.${key} input`).addClass('input_error');
     });
   },
+
+  clearErrors() {
+    clearErrors();
+  }
 }
 
 function clearErrors() {
