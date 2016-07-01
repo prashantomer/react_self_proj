@@ -54,3 +54,11 @@ hr {
 .SpaceTypes table tr td:first-child{
   width: 75%;
 }
+
+.Amenities table tr td:first-child{
+  width: 75%;
+}
+
+.Amenities .btn{
+  margin-left: 10px;
+}

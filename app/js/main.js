@@ -5,7 +5,7 @@ import { Router, Route, Link, browserHistory, IndexRoute, withRouter  } from 're
 import App from './components/pages/App';
 import SpaceTypes from './components/pages/SpaceTypes/main';
 import Spaces from './components/pages/Spaces/main';
-import Amenities from './components/pages/Amenities';
+import Amenities from './components/pages/Amenities/main';
 import Signin from './components/pages/Signin';
 import Signup from './components/pages/Signup';
 import Signout from './components/pages/Signout';
