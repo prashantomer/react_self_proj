@@ -2,6 +2,7 @@ import React from 'react';
 import SpaceTypes from './SpaceTypes';
 import Form from './form';
 import auth from '../auth'
+import flash from '../flash'
 
 class Body extends React.Component {
 
@@ -18,6 +19,9 @@ class Body extends React.Component {
       type: 'GET',
       success:(response) => {
         this.setState({ spaceTypes: response.spaceTypes.reverse() })
+      },
+      error:(response) => {
+        flash.error(response.responseText)
       }
     });
   }
@@ -28,10 +32,10 @@ class Body extends React.Component {
   }
 
   deleteSpaceType(id) {
-    var NewSpaceTypes = this.state.spaceTypes.filter((spaceType)=>{
+    var newSpaceTypes = this.state.spaceTypes.filter((spaceType)=>{
       return spaceType.id != id;
     });
-    this.setState({spaceTypes: NewSpaceTypes});
+    this.setState({spaceTypes: newSpaceTypes});
   }
 
   render() {
@@ -43,7 +47,7 @@ class Body extends React.Component {
           ( <div><Form state={this.props.state} handleSubmit={this.addSpaceType.bind(this)}/><br/></div> ) :
           ( <div></div> )
         }
-        <SpaceTypes spaceTypes={this.state.spaceTypes} state={this.props.state} handleDelete={this.deleteSpaceType.bind(this)}/>
+        <SpaceTypes spaceTypes={this.state.spaceTypes} state={this.props.state} handleDelete={this.deleteSpaceType.bind(this)} />
       </div>
     )
   }

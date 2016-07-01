@@ -27,8 +27,8 @@ class Form extends React.Component {
         if (response.status == 422) {
           flash.errors_with_object(response.responseJSON)
         } else {
-          flash.error(response.statusText)
-        } 
+          flash.error(response.responseText)
+        }
       }
     });
   }
