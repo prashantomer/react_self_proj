@@ -18,7 +18,7 @@ var routes = (
     <Route path = '/' component = {App}>
       <IndexRoute component = {SpaceTypes} />
       <Route path = 'spaces' name='spaces' component = {Spaces} onEnter={requireAuth} />
-      <Route path = 'amenities' name='amenities' component = {Amenities} onEnter={requireAuth} />
+      <Route path = 'amenities' name='amenities' component = {Amenities} />
       <Route path = 'signin' name='signin' component = {Signin}  onEnter={checkAuth}/>
       <Route path = 'signup' name='signup' component = {Signup}  onEnter={checkAuth}/>
       <Route path = 'signout' name='signout' component = {Signout} onEnter={requireAuth} />
