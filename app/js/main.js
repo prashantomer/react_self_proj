@@ -10,6 +10,7 @@ import Signin from './components/pages/Signin';
 import Signup from './components/pages/Signup';
 import Signout from './components/pages/Signout';
 import Profile from './components/pages/Profile';
+import NotFound from './components/pages/NotFound';
 import auth from './components/pages/auth'
 
 var routes = (
@@ -22,6 +23,7 @@ var routes = (
       <Route path = 'signup' name='signup' component = {Signup}  onEnter={checkAuth}/>
       <Route path = 'signout' name='signout' component = {Signout} onEnter={requireAuth} />
       <Route path = 'profile' name='profile' component = {Profile} onEnter={requireAuth} />
+      <Route component={NotFound} path="*"></Route>
     </Route>
   </Router>
 )
