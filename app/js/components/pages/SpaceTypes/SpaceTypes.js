@@ -10,7 +10,7 @@ class SpaceTypes extends React.Component {
   render() {
     var spaceTypes = this.props.spaceTypes.map((spaceType) => {
       return ( 
-        <SpaceType spaceType={spaceType} state={this.props.state} handleDelete={this.handleDelete.bind(this)} />
+        <SpaceType spaceType={spaceType} state={this.props.state} handleDelete={this.handleDelete.bind(this)} {...this.props} />
       ); 
     });
     var state = this.props.state;

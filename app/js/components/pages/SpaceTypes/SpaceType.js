@@ -13,24 +13,26 @@ class SpaceType extends React.Component {
 
   handleDelete(id) {
     var token = this.props.state.token;
-    
-    $.ajax({
-      url: `${auth.host()}/space_types/${id}`,
-      type: 'DELETE',
-        headers: { 'Authorization': `Token ${token}`
-      },
-      success:(response) => {
-        if (response == 'ok') {
-          this.props.handleDelete(id);
-        } else {
-          flash.warning(response);
-        }
-      },
-      error:(response) => {
-        flash.error(response.responseText);
-      }
+    var type = "deleteSpace_Type"
 
-    });
+    this.props.deleteItem(id, token, type)
+    // $.ajax({
+    //   url: `${auth.host()}/space_types/${id}`,
+    //   type: 'DELETE',
+    //     headers: { 'Authorization': `Token ${token}`
+    //   },
+    //   success:(response) => {
+    //     if (response == 'ok') {
+    //       this.props.handleDelete(id);
+    //     } else {
+    //       flash.warning(response);
+    //     }
+    //   },
+    //   error:(response) => {
+    //     flash.error(response.responseText);
+    //   }
+
+    // });
   }
 
   handleEdit(id) {
@@ -38,21 +40,24 @@ class SpaceType extends React.Component {
 
       var token = this.props.state.token;
       var name = this.refs.name.value;
+      var type = "editSpace_Type"
 
-      $.ajax({
-        url: `${auth.host()}/space_types/${id}`,
-        type: 'PUT',
-        data: { space_type: {id: id, name: name} },
-        headers: { 'Authorization': `Token ${token}` },
-        context: this,
-        async: false,
-        success:(response) => {
-          this.props.spaceType.name = name
-        },
-        error:(response) => {
-          flash.error(response.responseText);
-        }
-      });      
+      this.props.editItem(id, name, token, type)
+
+      // $.ajax({
+      //   url: `${auth.host()}/space_types/${id}`,
+      //   type: 'PUT',
+      //   data: { space_type: {id: id, name: name} },
+      //   headers: { 'Authorization': `Token ${token}` },
+      //   context: this,
+      //   async: false,
+      //   success:(response) => {
+      //     this.props.spaceType.name = name
+      //   },
+      //   error:(response) => {
+      //     flash.error(response.responseText);
+      //   }
+      // });      
     }
 
     this.setState({ editable: !this.state.editable })

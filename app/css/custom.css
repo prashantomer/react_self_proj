@@ -67,3 +67,37 @@ hr {
   text-align: center;
   margin-top: 100px;
 }
+
+/*.boxed {
+  border: 1px solid green ;
+  max-width: 100px ;
+  min-height: 120px;
+  margin-left: 50px;
+  margin-bottom: 10px;
+}*/
+
+.sidepanel {
+  border: 1px solid transparent ;
+  max-width: 150px;
+  color: lightcoral;
+  border-color: transparent;
+  margin-left: -70px;
+  background: papayawhip;
+}
+
+.avatar-image {
+  border: 1px solid transparent ;
+  margin-left: 25px;
+  margin-top: 10px;
+  max-width: 100px !important;
+  max-height: 120px !important;
+}
+
+.user_name_profile {
+  margin-bottom: 10px;
+}
+
+.Footer > h6 {
+  margin-left: 70px;
+  font-weight: bold
+}

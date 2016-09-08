@@ -8,7 +8,7 @@ class Main extends React.Component {
     return (
       <div className='Main col-md-8 col-md-offset-2'>
         <Header/>
-        <Body state={this.props.state}/>
+        <Body state={this.props.state} {...this.props} />
       </div>
     )
   }

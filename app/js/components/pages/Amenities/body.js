@@ -47,7 +47,7 @@ class Body extends React.Component {
           ( <div><Form state={this.props.state} handleSubmit={this.addAmenity.bind(this)}/><br/></div> ) :
           ( <div></div> )
         }
-        <Amenities amenities={this.state.amenities} state={this.props.state} handleDelete={this.deleteAmenity.bind(this)} />
+        <Amenities amenities={this.state.amenities} state={this.props.state} handleDelete={this.deleteAmenity.bind(this)} {...this.props} />
       </div>
     )
   }

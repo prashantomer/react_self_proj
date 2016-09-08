@@ -13,24 +13,27 @@ class Amenity extends React.Component {
 
   handleDelete(id) {
     var token = this.props.state.token;
-    
-    $.ajax({
-      url: `${auth.host()}/amenities/${id}`,
-      type: 'DELETE',
-        headers: { 'Authorization': `Token ${token}`
-      },
-      success:(response) => {
-        if (response == 'ok') {
-          this.props.handleDelete(id);
-        } else {
-          flash.warning(response);
-        }
-      },
-      error:(response) => {
-        flash.error(response.responseText);
-      }
+    var type = "deleteAmenity"
 
-    });
+    this.props.deleteItem(id, token, type)
+    
+    // $.ajax({
+    //   url: `${auth.host()}/amenities/${id}`,
+    //   type: 'DELETE',
+    //     headers: { 'Authorization': `Token ${token}`
+    //   },
+    //   success:(response) => {
+    //     if (response == 'ok') {
+    //       this.props.handleDelete(id);
+    //     } else {
+    //       flash.warning(response);
+    //     }
+    //   },
+    //   error:(response) => {
+    //     flash.error(response.responseText);
+    //   }
+
+    // });
   }
 
   handleEdit(id) {
@@ -38,21 +41,24 @@ class Amenity extends React.Component {
 
       var token = this.props.state.token;
       var name = this.refs.name.value;
+      var type = "editAmenity"
 
-      $.ajax({
-        url: `${auth.host()}/amenities/${id}`,
-        type: 'PUT',
-        data: { amenity: {id: id, name: name} },
-        headers: { 'Authorization': `Token ${token}` },
-        context: this,
-        async: false,
-        success:(response) => {
-          this.props.amenity.name = name
-        },
-        error:(response) => {
-          flash.error(response.responseText);
-        }
-      });      
+      this.props.editItem(id, name, token, type)
+
+      // $.ajax({
+      //   url: `${auth.host()}/amenities/${id}`,
+      //   type: 'PUT',
+      //   data: { amenity: {id: id, name: name} },
+      //   headers: { 'Authorization': `Token ${token}` },
+      //   context: this,
+      //   async: false,
+      //   success:(response) => {
+      //     this.props.amenity.name = name
+      //   },
+      //   error:(response) => {
+      //     flash.error(response.responseText);
+      //   }
+      // });      
     }
 
     this.setState({ editable: !this.state.editable })

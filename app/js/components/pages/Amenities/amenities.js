@@ -10,7 +10,7 @@ class Amenities extends React.Component {
   render() {
     var amenities = this.props.amenities.map((amenity) => {
       return ( 
-        <Amenity amenity={amenity} state={this.props.state} handleDelete={this.handleDelete.bind(this)} />
+        <Amenity amenity={amenity} state={this.props.state} handleDelete={this.handleDelete.bind(this)} {...this.props} />
       ); 
     });
     var state = this.props.state;
